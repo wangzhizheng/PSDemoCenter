@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../public/style.css" media="all" />
+	<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="../style-ie.css"/>
+    <![endif]-->
+<title>EMC Japan PS Demo Center</title>
+
+<script type="text/javascript" src="../public/jquery.js"></script>
+
+<!-- Begin DropDown -->
+      
+<script type="text/javascript">
+$(function(){
+   $("ul.dropdown li").hover(function(){
+        $(this).addClass("hover");
+        $('ul:first',this).css('visibility', 'visible');
+    
+    }, function(){
+   $(this).removeClass("hover");
+   $('ul:first',this).css('visibility', 'hidden');
+});
+$("ul.dropdown li ul li:has(ul)").find("a:first").append(" &raquo; ");
+});
+</script>
+</head>
+<body>
+<div id="header">
+</div>
+
+<%- include menu.html %>
+<!--<ul class="dropdown">&lt;!&ndash; menu &ndash;&gt;-->
+
+<!--<li><a href="rackhd.html">RackHD</a>-->
+    <!--<ul class="sub_menu">-->
+        <!--<li><a href="../gallery.html">Demo1</a>-->
+            <!--<ul>-->
+                <!--<li><a href="../uploadFiles.html">Demo1-1</a></li>-->
+                <!--<li><a href="../TrySQL.html">Demo1-2</a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="../gallery.html">Demo2</a></li>-->
+        <!--<li><a href="downloadpage">Demo3</a></li>-->
+        <!--<li><a href="../gallery.html">Demo4</a></li>-->
+        <!--<li><a href="../gallery.html">Demo5</a></li>-->
+    <!--</ul>-->
+<!--</li>-->
+
+<!--<li><a href="../gallery.html">Data Streaming</a>-->
+<!--<ul class="sub_menu">-->
+    <!--<li><a href="../gallery.html">Have a try on DataLake</a>-->
+    	<!--<ul>-->
+        <!--<li><a href="../uploadFiles.html">Upload A File to DataLake</a></li>-->
+        <!--<li><a href="../TrySQL.html">Try SQL</a></li>-->
+        <!--</ul>-->
+    <!--</li>-->
+    <!--<li><a href="../gallery.html">IDCF</a></li>-->
+    <!--<li><a href="downloadpage">Download Page</a></li>-->
+    <!--<li><a href="../gallery.html">Case2</a></li>-->
+    <!--<li><a href="../gallery.html">Case3</a></li>-->
+<!--</ul>-->
+<!--</li>-->
+
+<!--&lt;!&ndash; end submenu &ndash;&gt;-->
+
+<!--<li><a href="../page.html">AI</a></li>-->
+<!--<li><a href="../page.html">Automational</a></li>-->
+<!--<li><a href="../page.html">Tools</a>-->
+    <!--<ul class="sub_menu">-->
+        <!--<li><a href="views/AttendancePro.html">AttendancePro</a></li>-->
+    <!--</ul>-->
+<!--</li>-->
+<!--</ul>&lt;!&ndash; close menu &ndash;&gt;-->
+
+<div id="gallery"><!-- gallery -->
+
+<ul>
+  <li><a href="../gallery.html"><img src="../images/tb1.jpg" alt="demo" /></a></li>
+  <li><a href="../gallery.html"><img src="../images/tb2.jpg" alt="demo" /></a></li>
+  <li><a href="../gallery.html"><img src="../images/tb3.jpg" alt="demo" /></a></li>
+  <li><a href="../gallery.html"><img src="../images/tb4.jpg" alt="demo" /></a></li>
+</ul>
+
+</div><!-- close gallery -->
+ 
+ 
+<div id="intro">
+<p><span>Welcome to PSD Data Lake.</span> Here are some messages to all visiting this site</p>
+</div>
+
+
+<div id="box_left">
+<h3>About</h3>
+<p>Some introduce messages for our Data Lake Team</p>
+<a href="../page.html"><img src="../images/more.png" class="more" width="68" height="24" alt="more" /></a>
+</div>
+
+<div id="box_right">
+<h3>Recent</h3>
+<p>What we are recently doing. latest update (latest weekly meeting) can be display here.</p>
+<a href="../page.html"><img src="../images/more.png" class="more" width="68" height="24" alt="more" /></a>
+</div>
+
+<div id="box_middle">
+<h3>Services</h3>
+<p>Here can list some services (micro service?) what we can provide.</p>
+<a href="../page.html"><img src="../images/more.png" class="more" width="68" height="24" alt="more" /></a>
+</div>
+
+<div id="footer">
+PSD In <a href="http://japan.emc.com/">EMC Japan</a> | Created by <a href="mailto:zhizheng.wang2@emc.com">Wangzz</a>
+</div>
+
+</body>
+</html>
