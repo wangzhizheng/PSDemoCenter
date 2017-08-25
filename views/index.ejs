@@ -1,34 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../public/style.css" media="all" />
-	<!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" href="../style-ie.css"/>
-    <![endif]-->
-<title>EMC Japan PS Demo Center</title>
-
-<script type="text/javascript" src="../public/jquery.js"></script>
-
-<!-- Begin DropDown -->
-      
-<script type="text/javascript">
-$(function(){
-   $("ul.dropdown li").hover(function(){
-        $(this).addClass("hover");
-        $('ul:first',this).css('visibility', 'visible');
-    
-    }, function(){
-   $(this).removeClass("hover");
-   $('ul:first',this).css('visibility', 'hidden');
-});
-$("ul.dropdown li ul li:has(ul)").find("a:first").append(" &raquo; ");
-});
-</script>
-</head>
-<body>
-<div id="header">
-</div>
+<%- include head.html%>
 
 <%- include menu.html %>
 
@@ -44,13 +14,16 @@ $("ul.dropdown li ul li:has(ul)").find("a:first").append(" &raquo; ");
  
  
 <div id="intro">
-<p><span>Welcome to PSD Data Lake.</span> Here are some messages to all visiting this site</p>
+<p><span>Welcome to GDS Demo Center.</span> We will show a lot of Demo from this site</p>
 </div>
 
 
 <div id="box_left">
-<h3>About</h3>
-<p>Some introduce messages for our Data Lake Team</p>
+<h3>About US</h3>
+<p>We worked with a virtual team named DevOps
+    <br>
+    We focused on Bare Metal, AI, Data Streaming and everything that can be automatizated
+</p>
 <a href="../page.html"><img src="../images/more.png" class="more" width="68" height="24" alt="more" /></a>
 </div>
 
@@ -62,13 +35,11 @@ $("ul.dropdown li ul li:has(ul)").find("a:first").append(" &raquo; ");
 
 <div id="box_middle">
 <h3>Services</h3>
-<p>Here can list some services (micro service?) what we can provide.</p>
+<p>Here can list some services what we can provide.</p>
 <a href="../page.html"><img src="../images/more.png" class="more" width="68" height="24" alt="more" /></a>
 </div>
 
-<div id="footer">
-PSD In <a href="http://japan.emc.com/">EMC Japan</a> | Created by <a href="mailto:zhizheng.wang2@emc.com">Wangzz</a>
-</div>
+<%- include foot.html %>
 
 </body>
 </html>

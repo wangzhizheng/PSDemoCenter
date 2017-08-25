@@ -1,0 +1,16 @@
+<%- include head.html %>
+
+<%- include menu.html %>
+<script type="text/javascript" src="../js/runpython.js"></script>
+
+<input type="text" name="username"></input>
+<input type="text" name="password"></input>
+<br>
+<input type="button" value="start" name="start" onclick="runpython();"></input>
+<input type="button" value="end" name="end"></input>
+
+<div id="result">
+<%= message %>
+</div>
+
+<%- include foot.html %>

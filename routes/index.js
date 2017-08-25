@@ -7,6 +7,34 @@ router.get('/', function(req,res){
     res.render('index',{});
 });
 
+router.get('/AttendancePro',function(req,res){
+    res.render('AttendancePro',{message:''});
+});
+
+router.get('/AttendancePro_Start',function(req,res){
+    var exec=require('child_process').exec;
+    var arg1="149186";
+    var arg2="itageEMC0824";
+    exec('python public/attendancepro_start.py ' + arg1 + ' ' + arg2,function(err,stdout,stderr){
+        if (stdout.length>1) console.log(stdout);
+        if (err) console.log('stderr: '+stderr);
+        res.render('AttendancePro',{message:stdout});
+    });
+    //res.render('AttendancePro',{message:stdout});
+});
+
+router.get('/AttendancePro_End',function(req,res){
+    var exec=require('child_process').exec;
+    var arg1="149186";
+    var arg2="itageEMC0824";
+    exec('python public/attendancepro_end.py ' + arg1 + ' ' + arg2,function(err,stdout,stderr){
+        if (stdout.length>1) console.log(stdout);
+        if (err) console.log('stderr: '+stderr);
+        res.render('AttendancePro',{message:stdout});
+    });
+    //res.render('AttendancePro',{message:stdout});
+});
+
 router.get('/test', function(req,res){
     //res.sendfile('./downloadpage.html');
     res.setHeader('Last-Modified', (new Date()).toUTCString());
