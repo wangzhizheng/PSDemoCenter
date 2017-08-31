@@ -11,28 +11,34 @@ router.get('/AttendancePro',function(req,res){
     res.render('AttendancePro',{message:''});
 });
 
-router.get('/AttendancePro_Start',function(req,res){
+router.post('/AttendancePro_Start',function(req,res){
     var exec=require('child_process').exec;
-    var arg1="149186";
-    var arg2="itageEMC0824";
+    var arg1=req.body.name;
+    var arg2=req.body.pass;
     exec('python public/attendancepro_start.py ' + arg1 + ' ' + arg2,function(err,stdout,stderr){
         if (stdout.length>1) console.log(stdout);
         if (err) console.log('stderr: '+stderr);
         res.render('AttendancePro',{message:stdout});
     });
-    //res.render('AttendancePro',{message:stdout});
+    var message="the message have been sent to AttendancePro";
+    res.setHeader("Content-Type","application/json");
+    res.write(JSON.stringify({message}));
+    res.end();
 });
 
-router.get('/AttendancePro_End',function(req,res){
+
+router.post('/AttendancePro_End',function(req,res){
     var exec=require('child_process').exec;
-    var arg1="149186";
-    var arg2="itageEMC0824";
+    var arg1=req.body.name;
+    var arg2=req.body.pass;
     exec('python public/attendancepro_end.py ' + arg1 + ' ' + arg2,function(err,stdout,stderr){
         if (stdout.length>1) console.log(stdout);
         if (err) console.log('stderr: '+stderr);
-        res.render('AttendancePro',{message:stdout});
     });
-    //res.render('AttendancePro',{message:stdout});
+    var message="the message have been sent to AttendancePro";
+    res.setHeader("Content-Type","application/json");
+    res.write(JSON.stringify({message}));
+    res.end();
 });
 
 router.get('/test', function(req,res){

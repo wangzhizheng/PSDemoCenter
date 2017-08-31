@@ -16,7 +16,8 @@ def page_is_loaded(driver):
 
 
 #driver = webdriver.Chrome("./chromedriver.exe")
-driver = webdriver.PhantomJS(service_log_path=os.path.devnull)
+#driver = webdriver.PhantomJS(service_log_path=os.path.devnull)
+driver = webdriver.PhantomJS(executable_path='public/phantomjs')
 driver.get("https://attendance.cvi.co.jp/LogOn.aspx")
 wait = ui.WebDriverWait(driver, 10)
 wait.until(page_is_loaded)

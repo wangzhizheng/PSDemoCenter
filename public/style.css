@@ -177,20 +177,21 @@ p {line-height: 1.4em; padding-bottom: 25px}
 #gallery {
 	
 	overflow: auto;
+	margin-top: -20px;
 	margin-left: -44px;
 	padding-bottom: 18px;
 	position:static;
 }
 
 #gallery ul li {
-	width: 190px;
+	width: 130px;
 	height: 215px;
-	padding-top: 17px;
-	padding-left: 17px;
+	padding-top: 7px;
+	padding-left: 14px;
 	float: left;
-	background: url(../images/thumb_bg.png) no-repeat;
+	background: url() no-repeat;
 	margin-left: 44px;
-	margin-bottom: 28px;
+	margin-bottom: 40px;
 }
 
 .center {margin: auto;}
