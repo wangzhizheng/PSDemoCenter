@@ -7,6 +7,17 @@ router.get('/', function(req,res){
     res.render('index',{});
 });
 
+//here is RackHD
+router.get('/RackHD_ALLServer',function(req,res){
+    res.render('RackHD_AllServer',{});
+});
+
+router.get('/RackHD_OBM',function(req,res){
+    res.render('RackHD_OBM',{})
+});
+//RackHD End
+
+//here is AttendancePro Start
 router.get('/AttendancePro',function(req,res){
     res.render('AttendancePro',{message:''});
 });
@@ -40,6 +51,7 @@ router.post('/AttendancePro_End',function(req,res){
     res.write(JSON.stringify({message}));
     res.end();
 });
+//AttendancePro End
 
 router.get('/test', function(req,res){
     //res.sendfile('./downloadpage.html');

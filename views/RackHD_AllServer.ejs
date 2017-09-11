@@ -1,0 +1,37 @@
+<%- include head.html %>
+
+<%- include menu.html %>
+
+<script type="text/javascript" src="../js/rackhd.js"></script>
+<style>
+    .rackhd
+    {
+        font-family: Arial, Helvetica, sans-serif
+    }
+</style>
+
+
+<table>
+    <tr width="400">
+        <td valign="top" align="left" width="200" margin="20">
+            <input type="button" id="btnGetAllNodes" value="GetAllNodes" onclick="GetAllNodes();"></input>
+        </td>
+        <td>
+            <div align="left" id="nodelist" height="100" width="600" class="rackhd">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left" width="400"><p>
+                <input type="text" id="macinfo" value=""></input>
+                <input type="button" id="btnGetNode" value="FindNodeByMAC" onclick="GetNode();"></input>
+        </p></td>
+        <td>
+                <div align="left" id="nodeinfo" height="100" width="600" class="rackhd">
+                </div>
+        </td>
+    </tr>
+</table>
+
+
+<%- include foot.html %>
