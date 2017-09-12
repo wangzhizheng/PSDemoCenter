@@ -7,6 +7,7 @@ router.get('/', function(req,res){
     res.render('index',{});
 });
 
+// add test 
 //here is RackHD
 router.get('/RackHD_ALLServer',function(req,res){
     res.render('RackHD_AllServer',{});
