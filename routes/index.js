@@ -126,12 +126,12 @@ router.get('/datav/basemap', function(req,res){
         centerLat=sumLat/coordinates[0].length;
         centerLng=sumLng/coordinates[0].length;
 
-
         var head='[{"zoom": "7"}]';
         jsonResponse=JSON.parse(head);
         jsonResponse[0].lng=centerLng;
         jsonResponse[0].lat=centerLat;
         res.send(jsonResponse);
+        res.end();
     });
     
 });
