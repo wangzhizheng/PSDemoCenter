@@ -103,7 +103,7 @@ router.get('/datav/basemap', function(req,res){
     //res.send(args.ken);
     var fs=require('fs');
     var jsonObj
-    fs.readFile('japanmap.json',function(error,data){
+    fs.readFile('routes/japanmap.json',function(error,data){
         if (error) throw error;
         jsonObj=JSON.parse(data);
         var kens=jsonObj.features;
