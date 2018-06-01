@@ -130,7 +130,9 @@ router.get('/datav/basemap', function(req,res){
         jsonResponse=JSON.parse(head);
         jsonResponse[0].lng=centerLng;
         jsonResponse[0].lat=centerLat;
-        res.send(jsonResponse);
+        //res.send(jsonResponse);
+        res.write(JSON.stringify(jsonResponse));
+        //res.write(jsonResponse.toString);
         res.end();
     });
     
