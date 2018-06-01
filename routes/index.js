@@ -75,6 +75,8 @@ router.get('/datav/map', function(req,res){
         if (error) throw error;
         jsonObj=JSON.parse(data);
         var kens=jsonObj.features;
+        var geometry="";
+        var properties="";
         for (i=0;i<kens.length;i++){
             if (kens[i].properties['name']==ken){
                 geometry=kens[i]['geometry'];
