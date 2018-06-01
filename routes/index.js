@@ -178,7 +178,7 @@ router.get('/datav/factory', function (req, res) {
     var connection = mysql.createConnection({
         host: 'rm-e9b68rq6mmpotwv404o.mysql.japan.rds.aliyuncs.com',
         user: 'wangzz',
-        password: 'itageEMC0824',
+        password: 'Abc123456',
         database: 'datav'
     });
 
