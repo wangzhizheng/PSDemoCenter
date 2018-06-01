@@ -103,40 +103,73 @@ router.get('/datav/basemap', function(req,res){
     //res.send(args.ken);
     var fs=require('fs');
     var jsonObj
-    fs.readFile('routes/japanmap.json',function(error,data){
-        if (error) throw error;
-        jsonObj=JSON.parse(data);
-        var kens=jsonObj.features;
-        var geometry="";
-        var properties="";
-        for (i=0;i<kens.length;i++){
-            if (kens[i].properties['name']==ken){
-                geometry=kens[i]['geometry'];
-                properties=kens[i]['properties'];
-            }
+    var data=fs.readFileSync('routes/japanmap.json');
+    jsonObj = JSON.parse(data);
+    var kens = jsonObj.features;
+    var geometry = "";
+    var properties = "";
+    for (i = 0; i < kens.length; i++) {
+        if (kens[i].properties['name'] == ken) {
+            geometry = kens[i]['geometry'];
+            properties = kens[i]['properties'];
         }
-        var coordinates=geometry.coordinates;
-        
-        sumLat=0;
-        sumLng=0;
-        for (i=0;i<coordinates[0].length;i++){
-            sumLat=coordinates[0][i][1]+sumLat;
-            sumLng=coordinates[0][i][0]+sumLng;
-        }
-        centerLat=sumLat/coordinates[0].length;
-        centerLng=sumLng/coordinates[0].length;
+    }
+    var coordinates = geometry.coordinates;
 
-        var head='[{"zoom": "7"}]';
-        jsonResponse=JSON.parse(head);
-        jsonResponse[0].lng=centerLng;
-        jsonResponse[0].lat=centerLat;
-        //res.send(jsonResponse);
-        res.write(JSON.stringify(jsonResponse));
-        //res.write(jsonResponse.toString);
-        res.end();
-    });
-    
+    sumLat = 0;
+    sumLng = 0;
+    for (i = 0; i < coordinates[0].length; i++) {
+        sumLat = coordinates[0][i][1] + sumLat;
+        sumLng = coordinates[0][i][0] + sumLng;
+    }
+    centerLat = sumLat / coordinates[0].length;
+    centerLng = sumLng / coordinates[0].length;
+
+    var head = '[{"zoom": "7"}]';
+    jsonResponse = JSON.parse(head);
+    jsonResponse[0].lng = centerLng;
+    jsonResponse[0].lat = centerLat;
+    res.send(jsonResponse);
+    //res.write(JSON.stringify(jsonResponse));
+    //res.write(jsonResponse.toString);
+    res.end();
 });
+
+
+    // fs.readFile('routes/japanmap.json',function(error,data){
+    //     if (error) throw error;
+    //     jsonObj=JSON.parse(data);
+    //     var kens=jsonObj.features;
+    //     var geometry="";
+    //     var properties="";
+    //     for (i=0;i<kens.length;i++){
+    //         if (kens[i].properties['name']==ken){
+    //             geometry=kens[i]['geometry'];
+    //             properties=kens[i]['properties'];
+    //         }
+    //     }
+    //     var coordinates=geometry.coordinates;
+        
+    //     sumLat=0;
+    //     sumLng=0;
+    //     for (i=0;i<coordinates[0].length;i++){
+    //         sumLat=coordinates[0][i][1]+sumLat;
+    //         sumLng=coordinates[0][i][0]+sumLng;
+    //     }
+    //     centerLat=sumLat/coordinates[0].length;
+    //     centerLng=sumLng/coordinates[0].length;
+
+    //     var head='[{"zoom": "7"}]';
+    //     jsonResponse=JSON.parse(head);
+    //     jsonResponse[0].lng=centerLng;
+    //     jsonResponse[0].lat=centerLat;
+    //     res.send(jsonResponse);
+    //     //res.write(JSON.stringify(jsonResponse));
+    //     //res.write(jsonResponse.toString);
+    //     res.end();
+    // });
+    
+//});
 
 router.get('/datav/factory', function (req, res) {
     //res.sendfile('./downloadpage.html');
