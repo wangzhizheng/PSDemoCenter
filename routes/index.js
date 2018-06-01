@@ -127,10 +127,10 @@ router.get('/datav/basemap', function(req,res){
         centerLng=sumLng/coordinates[0].length;
 
 
-        var head='{"zoom": "7"}';
+        var head='[{"zoom": "7"}]';
         jsonResponse=JSON.parse(head);
-        jsonResponse.lng=centerLng;
-        jsonResponse.lat=centerLat;
+        jsonResponse[0].lng=centerLng;
+        jsonResponse[0].lat=centerLat;
         res.send(jsonResponse);
     });
     
