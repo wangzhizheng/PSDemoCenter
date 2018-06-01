@@ -55,9 +55,39 @@ router.post('/AttendancePro_End',function(req,res){
 //AttendancePro End
 
 router.get('/test', function(req,res){
+    //var URL = require('url');
     //res.sendfile('./downloadpage.html');
     res.setHeader('Last-Modified', (new Date()).toUTCString());
-    res.send('hello world');
+    //var args=URL.parse(req.url,true).query;
+    res.send("Hello World");
+});
+
+router.get('/datav/map', function(req,res){
+    //res.sendfile('./downloadpage.html');
+    var URL=require('url');
+    res.setHeader('Last-Modified', (new Date()).toUTCString());
+    var args=URL.parse(req.url,true).query;
+    var ken=args.ken;
+    //res.send(args.ken);
+    var fs=require('fs');
+    var jsonObj
+    fs.readFile('japanmap.json',function(error,data){
+        if (error) throw error;
+        jsonObj=JSON.parse(data);
+        var kens=jsonObj.features;
+        for (i=0;i<kens.length;i++){
+            if (kens[i].properties['name']==ken){
+                geometry=kens[i]['geometry'];
+                properties=kens[i]['properties'];
+            }
+        }
+        var head='{"type": "FeatureCollection","features": [{"type": "Feature","geometry": ""}]}'
+        jsonResponse=JSON.parse(head);
+        jsonResponse.features[0].geometry=geometry;
+        jsonResponse.features[0].properties=properties;
+        res.send(jsonResponse);
+    });
+    
 });
 
 router.get('/datav/factory', function (req, res) {
@@ -96,54 +126,6 @@ router.get('/datav/factory', function (req, res) {
 
     });
     connection.end();
-
-
-    // var hk={
-    //     "dotid": 0,
-    //     "lat": 43.06417,
-    //     "lng": 141.34694,
-    //     "value": 40,
-    //     "info": "hokkaido",
-    //     "type": "error",
-    //     "name": "hk",
-    //     "rotationAngle": 45
-    //   };
-
-    // var tk={
-    //     "dotid": 1,
-    //     "lat": 35.6811673,
-    //     "lng": 139.7670516,
-    //     "value": 60,
-    //     "info": "Tokyo",
-    //     "type": "ok",
-    //     "name": "tk"
-    //   };
-
-    // var fk={
-    //     "dotid": 2,
-    //     "lat": 33.596302,
-    //     "lng": 130.410784,
-    //     "value": 20,
-    //     "info": "fukuoka",
-    //     "type": "ok",
-    //     "name": "fk"
-    //   };
-
-    // var ok={
-    //     "dotid": 3,
-    //     "lat": 34.702485,
-    //     "lng": 135.495951,
-    //     "value": 20,
-    //     "info": "oosaka",
-    //     "type": "error",
-    //     "name": "ok"
-    //   };
-
-    // var message=[hk,tk,fk,ok];
-
-    // res.setHeader("Content-Type", "application/json");
-    // res.write(JSON.stringify(message));
-    // res.end();
 });
 
 
