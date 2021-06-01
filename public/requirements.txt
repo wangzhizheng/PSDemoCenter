@@ -11,5 +11,5 @@ pylint==1.7.2
 selenium==3.5.0
 singledispatch==3.4.0.3
 six==1.10.0
-urllib3==1.21.1
+urllib3==1.26.5
 wrapt==1.10.10
