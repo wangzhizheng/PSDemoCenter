@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
+    "body-parser": "~1.20.1",
     "connect-mongo": "0.8.2",
     "connect-multiparty": "~1.2.5",
     "ejs": "~2.5.6",
